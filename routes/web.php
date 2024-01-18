@@ -1,4 +1,6 @@
 <?php
+use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\ComicController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -13,6 +15,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+
+// rotte 
+
+// - lista di tutte le paste GET
+// - dettagli di una singola pasta  GET
+// - pagina con form di creazione di una pasta -- GET
+//         facciamo vedere form ( GET )
+
+// - rotta per salvare dati nel database --- POST 
+//  modificare paste -- pagina con form di modifica di una pasta ---- GET
+//  rotta che gestisce modifca dei dati nel database --- PUT 
+//  rotta che cancella un record dal database  --- DELETE
+
+//  per una risorsa ci servono 7 rotte in questo caso 
+
+// Route::get('/comics', [ComicsController::class, 'index'])->name('comics.index');
+
+Route::resource('comics', ComicController::class);
