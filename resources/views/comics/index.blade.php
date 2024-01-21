@@ -22,9 +22,10 @@
                         <a class="btn btn-success" href="{{ route('comics.show', ['comic' => $comic->id]) }}">Details</a>
                     </td>
                 </tr>
+                
                 @endforeach
             </tbody>
         </table>
-        
+        <a class="btn btn-warning" href="{{ route('comics.create') }}">Add a new comic</a>
     </div>
 @endsection
