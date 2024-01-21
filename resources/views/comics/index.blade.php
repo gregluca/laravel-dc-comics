@@ -18,7 +18,9 @@
                     <th scope="row">{{ $comic->id }}</th>
                     <td>{{ $comic->title  }}</td>
                     <td>{{ $comic->type }}</td>
-                    <td></td>
+                    <td>
+                        <a class="btn btn-success" href="{{ route('comics.show', ['comic' => $comic->id]) }}">Details</a>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
