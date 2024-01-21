@@ -37,7 +37,12 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $comic = new Comic();
+        $comic->fill($form_data);
+        
+        $comic->save();
+
+       return redirect()->route('comics.show', ['comic' => $comic->id]);
     }
 
     /**
@@ -60,7 +65,8 @@ class ComicController extends Controller
      */
     public function edit($id)
     {
-        //
+        $comic = Comic::findOrFail($id);
+        return view('comics.edit', compact('comic'));
     }
 
     /**
@@ -72,7 +78,7 @@ class ComicController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**
